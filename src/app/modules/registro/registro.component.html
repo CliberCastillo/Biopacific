@@ -1,48 +1,126 @@
-<button class="btn btn-outline-primary my-2 my-sm-0 ml-4 font-weight-bold"
+<button class="btn btn-outline-primary my-2 my-sm-0 ml-2 font-weight-bold"
   (click)="open(modalRegistro)">Registrate</button>
 
 <ng-template #modalRegistro let-modal>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title font-weight-bold">
-          Registrarse en Biopacific
-        </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-          (click)="modal.dismiss('Cross click')">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-6">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title font-weight-bold">
+        Registrarse en Biopacific
+      </h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+        (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-6">
+          <div class="col-auto">
             <label class="font-weight-bold">Nombre</label>
-            <input type="email" class="form-control" name="Nombre" id="Nombre" required />
-            <label class="font-weight-bold">Teléfono</label>
-            <input type="number" class="form-control" required />
-            <label class="font-weight-bold">Distrito</label>
-            <input type="text" class="form-control">
-            <label class="font-weight-bold">Contraseña</label>
-            <input type="Password" class="form-control" required>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <img [src]="'assets/img/usuario.png'" class="img-fluid" />
+                </div>
+              </div>
+              <input type="text" class="form-control" placeholder="Ingresar nombre veterinaria" required />
+            </div>
           </div>
-          <div class="col-6">
+
+          <div class="col-auto">
+            <label class="font-weight-bold">Teléfono</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <img [src]="'assets/img/telefono.png'" class="img-fluid" />
+                </div>
+              </div>
+              <input type="number" class="form-control" placeholder="Ingresar su teléfono" required />
+            </div>
+          </div>
+
+          <div class="col-auto">
+            <label class="font-weight-bold">Distrito</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <img [src]="'assets/img/mapa.png'" class="img-fluid" />
+                </div>
+              </div>
+              <input type="text" class="form-control" placeholder="Ingresar su distrito" required />
+            </div>
+          </div>
+
+          <div class="col-auto">
+            <label class="font-weight-bold">Contraseña</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <img [src]="'assets/img/contrasena.png'" class="img-fluid" />
+                </div>
+              </div>
+              <input type="password" class="form-control" placeholder="Ingresar su contraseña" required />
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="col-auto">
             <label class="font-weight-bold">Dirección</label>
-            <input type="text" class="form-control" required />
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <img [src]="'assets/img/ubicacion.png'" class="img-fluid" />
+                </div>
+              </div>
+              <input type="text" class="form-control" placeholder="Ingresar su dirección" required />
+            </div>
+          </div>
+
+          <div class="col-auto">
             <label class="font-weight-bold">Nombre Contacto</label>
-            <input type="text" class="form-control" required />
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <img [src]="'assets/img/usuario.png'" class="img-fluid" />
+                </div>
+              </div>
+              <input type="text" class="form-control" placeholder="Ingresar su nombre de contacto" required />
+            </div>
+          </div>
+
+          <div class="col-auto">
             <label class="font-weight-bold">Correo</label>
-            <input type="email" class="form-control" required>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <img [src]="'assets/img/email.png'" class="img-fluid" />
+                </div>
+              </div>
+              <input type="email" class="form-control" placeholder="Ingresar su correo" required />
+            </div>
+          </div>
+
+          <div class="col-auto">
             <label class="font-weight-bold">Repetir Contraseña</label>
-            <input type="Password" class="form-control" required>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <img [src]="'assets/img/contrasena.png'" class="img-fluid" />
+                </div>
+              </div>
+              <input type="password" class="form-control" placeholder="Repetir su contraseña" required />
+            </div>
           </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
-          Salir
-        </button>
-        <button type="submit" class="btn btn-primary" ngbAutofocus (click)="modal.close('Save click')">
-          Registrarme
-        </button>
-      </div>
     </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+        Salir
+      </button>
+      <button type="submit" class="btn btn-primary" ngbAutofocus (click)="modal.close('Save click')">
+        Registrarme
+      </button>
+    </div>
+  </div>
 </ng-template>

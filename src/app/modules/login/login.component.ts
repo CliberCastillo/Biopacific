@@ -1,3 +1,5 @@
+import { Usuario } from './../../core/models/usuario/usuario';
+import { LoginService } from './../../core/services/login/login.service';
 import { Component, OnInit } from '@angular/core';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
@@ -8,10 +10,9 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  title = 'appBootstrap';
+  usuarios: Usuario[];
   closeResult: string;
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private loginservice: LoginService) {}
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -29,6 +30,14 @@ export class LoginComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.ListadoDeUsuario();
+  }
+  ListadoDeUsuario(){
+    this.loginservice.ListadoDeUsuarios().subscribe((response: Usuario[]) => {
+      this.usuarios = response;
+    }, (error: any) => {
+      console.log(error);
+    });
   }
 }
 
