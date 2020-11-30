@@ -1,23 +1,56 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
+  <div class="container">
+  <a class="navbar-brand" href="#">BioPacific</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Servicios
+        </a>
+        <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
+          <div class="row">
+            <div class="col-1 text-center mt-4">
+              <a href="#"><img [src]="'assets/img/ciempies.png'"></a>
+            </div>
+            <div class="col-5">
+              <strong><a href="#" class="text-dark">Parasitología</a></strong> análisis a los organismos vivos parásitos
+              (hospedadores y el medio ambiente)
+            </div>
+            <div class="col-1 mt-4">
+              <img [src]="'assets/img/endocrinologia.png'">
+            </div>
+            <div class="col-5">
+              <strong>Endocrinología</strong> análisis del sistema endocrino y las enfermedades 
+              provocadas del mismo.
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-1 text-center mt-3">
+              <img [src]="'assets/img/prueba-de-sangre.png'" width="34px">
+            </div>
+            <div class="col-5">
+              <strong>Hematoligia</strong> diagnóstico, tratamiento, estudio e 
+              investigación de la sangre.
+            </div>
+            <div class="col-1 mt-3">
+              <img [src]="'assets/img/matraz.png'">
+            </div>
+            <div class="col-5">
+              <strong>Bioquímica</strong> análisis de las proteínas, 
+              carbohidratos, lípidos y ácidos nucleicos.
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Por qué BioPacific
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
@@ -25,13 +58,15 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link" href="#">Úbicanos</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <div class="form-inline my-2 my-lg-0">
+      <app-login></app-login>
+      <app-registro></app-registro>
+      </div>
     </div>
-</div>
-  </nav>
+  </div>
+</nav>
+<app-imagenes></app-imagenes>
+<app-footer></app-footer>

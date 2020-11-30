@@ -1,0 +1,12 @@
+/*.borde-input{
+    border:none;
+    border-bottom:1px solid white;
+    background-color: #272727;
+    color:white;
+}
+.borde-input:focus {
+    /* Opcion 1 
+    outline: 0;
+    /* Opcion 2 
+    outline: none;
+ }*/

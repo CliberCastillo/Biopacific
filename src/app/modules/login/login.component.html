@@ -1,0 +1,51 @@
+<button type="button" class="btn btn-primary my-2 my-sm-0 font-weight-bold" (click)="open(mymodal)">
+  Inicar sesión
+</button>
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title font-weight-bold">
+      Inicio de Sesión 'Biopacific'
+    </h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="col-auto">
+      <label class="font-weight-bold">Correo</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <img [src]="'assets/img/email.png'" class="img-fluid" />
+          </div>
+        </div>
+        <input type="email" class="form-control" name="Email" placeholder="Ingresar su correo o usuario" required />
+      </div>
+    </div>
+    <div class="col-auto">
+      <label class="font-weight-bold">Contraseña</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <img [src]="'assets/img/contrasena.png'" class="img-fluid" />
+          </div>
+        </div>
+        <input type="password" class="form-control" name="Password" placeholder="Ingresar su contraseña" required />
+      </div>
+    </div>
+    <div class="col-auto">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="Remenber" type="checkbox" id="inlineCheckbox1" value="option1" />
+        <label class="form-check-label font-weight-bold" for="inlineCheckbox1">Recordar mi sesión</label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+      Salir
+    </button>
+    <button type="submit" class="btn btn-primary" ngbAutofocus (click)="modal.close('Save click')">
+      Iniciar Sesión
+    </button>
+  </div>
+</ng-template>
