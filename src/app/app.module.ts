@@ -11,6 +11,8 @@ import { ImagenesComponent } from './layouts/imagenes/imagenes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistroComponent } from './modules/registro/registro.component';
 import { HomeComponent } from './modules/home/home.component';
+import { AdministradorComponent } from './modules/home/administrador/administrador.component';
+import { ClienteComponent } from './modules/home/cliente/cliente.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,8 @@ import { HomeComponent } from './modules/home/home.component';
     ImagenesComponent,
     RegistroComponent,
     HomeComponent,
+    AdministradorComponent,
+    ClienteComponent,
   ],
   imports: [
     BrowserModule,

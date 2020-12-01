@@ -15,14 +15,14 @@
             <div class="col-1 text-center mt-4">
               <a href="#"><img [src]="'assets/img/ciempies.png'"></a>
             </div>
-            <div class="col-5">
-              <strong><a href="#" class="text-dark">Parasitología</a></strong> análisis a los organismos vivos parásitos
+            <div class="col-5 cambiar-color">
+              <strong>Parasitología</strong> análisis a los organismos vivos parásitos
               (hospedadores y el medio ambiente)
             </div>
             <div class="col-1 mt-4">
               <img [src]="'assets/img/endocrinologia.png'">
             </div>
-            <div class="col-5">
+            <div class="col-5 cambiar-color">
               <strong>Endocrinología</strong> análisis del sistema endocrino y las enfermedades 
               provocadas del mismo.
             </div>
@@ -32,14 +32,14 @@
             <div class="col-1 text-center mt-3">
               <img [src]="'assets/img/prueba-de-sangre.png'" width="34px">
             </div>
-            <div class="col-5">
+            <div class="col-5 cambiar-color">
               <strong>Hematoligia</strong> diagnóstico, tratamiento, estudio e 
               investigación de la sangre.
             </div>
             <div class="col-1 mt-3">
               <img [src]="'assets/img/matraz.png'">
             </div>
-            <div class="col-5">
+            <div class="col-5 cambiar-color">
               <strong>Bioquímica</strong> análisis de las proteínas, 
               carbohidratos, lípidos y ácidos nucleicos.
             </div>
@@ -62,6 +62,8 @@
         </li>
       </ul>
       <div class="form-inline my-2 my-lg-0">
+        <button (click)="navegarHaciaAdministrador()">administrador</button>
+        <button (click)="navegarHaciaCliente()">cliente</button>
       <app-login></app-login>
       <app-registro></app-registro>
       </div>
