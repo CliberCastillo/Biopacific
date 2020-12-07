@@ -1,12 +1,21 @@
-<button type="button" class="btn btn-primary my-2 my-sm-0 font-weight-bold" (click)="open(mymodal)">
+<button
+  type="button"
+  class="btn btn-primary my-2 my-sm-0 font-weight-bold"
+  (click)="open(mymodal)"
+>
   Inicar sesión
 </button>
 <ng-template #mymodal let-modal>
+  <form (submit)="submit()">
   <div class="modal-header">
-    <h5 class="modal-title font-weight-bold">
-      Inicio de Sesión 'Biopacific'
-    </h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <h5 class="modal-title font-weight-bold">Inicio de Sesión 'Biopacific'</h5>
+    <button
+      type="button"
+      class="close"
+      data-dismiss="modal"
+      aria-label="Close"
+      (click)="modal.close()"
+    >
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -19,7 +28,14 @@
             <img [src]="'assets/img/email.png'" class="img-fluid" />
           </div>
         </div>
-        <input type="email" class="form-control" name="Email" placeholder="Ingresar su correo o usuario" required />
+        <input
+          type="email"
+          class="form-control"
+          name="Email"
+          placeholder="Ingresar su correo o usuario"
+          [(ngModel)]="model.correo"
+          required
+        />
       </div>
     </div>
     <div class="col-auto">
@@ -30,22 +46,48 @@
             <img [src]="'assets/img/contrasena.png'" class="img-fluid" />
           </div>
         </div>
-        <input type="password" class="form-control" name="Password" placeholder="Ingresar su contraseña" required />
+        <input
+          type="password"
+          class="form-control"
+          name="Password"
+          placeholder="Ingresar su contraseña"
+          [(ngModel)]="model.contrasena"
+          required
+        />
       </div>
     </div>
     <div class="col-auto">
       <div class="form-check form-check-inline">
-        <input class="form-check-input" name="Remenber" type="checkbox" id="inlineCheckbox1" value="option1" />
-        <label class="form-check-label font-weight-bold" for="inlineCheckbox1">Recordar mi sesión</label>
+        <input
+          class="form-check-input"
+          name="Remenber"
+          type="checkbox"
+          id="inlineCheckbox1"
+          value="option1"
+        />
+        <label class="form-check-label font-weight-bold" for="inlineCheckbox1"
+          >Recordar mi sesión</label
+        >
       </div>
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-dismiss="modal"
+      (click)="modal.close()"
+    >
       Salir
     </button>
-    <button type="submit" class="btn btn-primary" ngbAutofocus (click)="modal.close('Save click')">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      ngbAutofocus
+      (click)="modal.close('Save click')"
+    >
       Iniciar Sesión
     </button>
   </div>
+</form>
 </ng-template>

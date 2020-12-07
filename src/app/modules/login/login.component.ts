@@ -1,8 +1,9 @@
-import { Usuario } from './../../core/models/usuario/usuario';
+import { Usuario } from './../../core/models/usuario';
 import { LoginService } from './../../core/services/login/login.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,34 +11,35 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  usuarios: Usuario[];
+  model: Usuario = {correo: '', contrasena: ''};
+  cargo: Usuario[];
+  modalreferencia: any;
   closeResult: string;
   constructor(private modalService: NgbModal, private loginservice: LoginService) {}
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+
+  open(content: TemplateRef<any>){
+    this.modalreferencia=this.modalService.open(content)
   }
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
+
+  closemodal(){
+    this.modalreferencia.close();
   }
   ngOnInit(): void {
-    this.ListadoDeUsuario();
+    
   }
-  ListadoDeUsuario(){
-    this.loginservice.ListadoDeUsuarios().subscribe((response: Usuario[]) => {
-      this.usuarios = response;
+  ListadoDeCargo(){
+    this.loginservice.ListadoDeCargos().subscribe((response: Usuario[]) => {
+      this.cargo = response;
     }, (error: any) => {
       console.log(error);
     });
+  }
+  limpiar(){
+    this.model = {correo: '', contrasena: ''};
+  }
+  submit(){
+    console.log(this.model);
+    this.limpiar()
   }
 }
 

@@ -1,31 +1,67 @@
-import { Component, OnInit } from '@angular/core';
-
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { RegistroService } from './../../core/services/registro/registro.service';
+import { Veterinaria } from './../../core/models/veterinaria';
+import { DistritoService } from './../../core/services/distrito/distrito.service';
+import { Distrito } from './../../core/models/distrito';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
+  model: Veterinaria = { nombre: '', direccion: '', telefono: '', nombreContacto: '', idDistrito: '', correo: '', contrasena: '' };
   closeResult: string;
-  constructor(private modalService: NgbModal) {}
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', size: 'lg'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  modalreferencia: any;
+  modal: NgbModalRef;
+  distrito: Distrito[];
+  visivilidadSpinner = false;
+  constructor(private modalService: NgbModal,
+    private distritoService: DistritoService,
+    private registroService: RegistroService
+  ) { }
+
+  open(content: TemplateRef<any>) {
+    this.modalreferencia = this.modalService.open(content, { size: 'lg' })
+  }
+
+  ngOnInit(): void {
+    this.ListadoDeDistrito()
+  }
+
+  ListadoDeDistrito() {
+    this.distritoService.ListadoDeDistrito().subscribe((response: Distrito[]) => {
+      this.distrito = response;
+    }, (error: any) => {
+      console.log(error);
     });
   }
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
+  onSubmit() {
+    this.visivilidadSpinner = true;
+    this.registroService.RegistrarVeterinaria(this.model).subscribe((response: Veterinaria) => {
+      this.visivilidadSpinner = false;
+      this.limpiarInput();
+      Swal.fire({
+        title: 'Exitoso!',
+        text: "La veterinaria a sido registrada correctamente",
+        icon: 'success'
+      })
+      this.modalreferencia.close();
+    }, (error: any) => {
+      this.visivilidadSpinner = false;
+      this.limpiarInput();
+      Swal.fire({
+        title: 'Fallo!',
+        text: "La veterinaria no se ha registrado",
+        icon: 'error'
+      })
+      this.modalreferencia.close();
+    });
   }
-  ngOnInit(): void {
+  limpiarInput() {
+    this.model = { nombre: '', direccion: '', telefono: '', nombreContacto: '', idDistrito: '', correo: '', contrasena: '' };
   }
 
 }

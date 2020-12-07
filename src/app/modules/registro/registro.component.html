@@ -1,14 +1,25 @@
-<button class="btn btn-outline-primary my-2 my-sm-0 ml-2 font-weight-bold"
-  (click)="open(modalRegistro)">Registrate</button>
+<button
+  class="btn btn-outline-primary my-2 my-sm-0 ml-2 font-weight-bold"
+  (click)="open(modalRegistro)"
+>
+  Registrate
+</button>
 
 <ng-template #modalRegistro let-modal>
+  <form (submit)="onSubmit()">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title font-weight-bold">
-        Registrarse en Biopacific
-      </h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-        (click)="modal.dismiss('Cross click')">
+      <div class="spinner-border mr-3" role="status" [ngStyle]="{'display':visivilidadSpinner ? 'block' : 'none'}">
+        <span  class="sr-only">Loading...</span>
+      </div>
+      <h5 class="modal-title font-weight-bold">Registrarse en Biopacific</h5>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+        (click)="modal.close()"
+      >
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
@@ -23,7 +34,14 @@
                   <img [src]="'assets/img/usuario.png'" class="img-fluid" />
                 </div>
               </div>
-              <input type="text" class="form-control" placeholder="Ingresar nombre veterinaria" required />
+              <input
+                type="text"
+                name="nombre"
+                class="form-control"
+                placeholder="Ingresar nombre veterinaria"
+                required
+                [(ngModel)]="model.nombre"
+              />
             </div>
           </div>
 
@@ -35,7 +53,14 @@
                   <img [src]="'assets/img/telefono.png'" class="img-fluid" />
                 </div>
               </div>
-              <input type="number" class="form-control" placeholder="Ingresar su teléfono" required />
+              <input
+                type="text"
+                name="telefono"
+                class="form-control"
+                placeholder="Ingresar su teléfono"
+                required
+                [(ngModel)]="model.telefono"
+              />
             </div>
           </div>
 
@@ -47,7 +72,12 @@
                   <img [src]="'assets/img/mapa.png'" class="img-fluid" />
                 </div>
               </div>
-              <input type="text" class="form-control" placeholder="Ingresar su distrito" required />
+              <select name="cboxDistrito" class="form-control" [(ngModel)]="model.idDistrito" name="idDistrito">
+                <option value="0">Seleccione una opción</option>
+                <option *ngFor="let dis of distrito" [ngValue]="dis.idDistrito">
+                  {{ dis.nombre }}
+                </option>
+              </select>
             </div>
           </div>
 
@@ -59,7 +89,14 @@
                   <img [src]="'assets/img/contrasena.png'" class="img-fluid" />
                 </div>
               </div>
-              <input type="password" class="form-control" placeholder="Ingresar su contraseña" required />
+              <input
+                type="password"
+                name="contrasena"
+                class="form-control"
+                placeholder="Ingresar su contraseña"
+                required
+                [(ngModel)]="model.contrasena"
+              />
             </div>
           </div>
         </div>
@@ -72,7 +109,14 @@
                   <img [src]="'assets/img/ubicacion.png'" class="img-fluid" />
                 </div>
               </div>
-              <input type="text" class="form-control" placeholder="Ingresar su dirección" required />
+              <input
+                type="text"
+                name="direccion"
+                class="form-control"
+                placeholder="Ingresar su dirección"
+                required
+                [(ngModel)]="model.direccion"
+              />
             </div>
           </div>
 
@@ -84,7 +128,14 @@
                   <img [src]="'assets/img/usuario.png'" class="img-fluid" />
                 </div>
               </div>
-              <input type="text" class="form-control" placeholder="Ingresar su nombre de contacto" required />
+              <input
+                type="text"
+                name="nombreContacto"
+                class="form-control"
+                placeholder="Ingresar su nombre de contacto"
+                required
+                [(ngModel)]="model.nombreContacto"
+              />
             </div>
           </div>
 
@@ -96,7 +147,14 @@
                   <img [src]="'assets/img/email.png'" class="img-fluid" />
                 </div>
               </div>
-              <input type="email" class="form-control" placeholder="Ingresar su correo" required />
+              <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="Ingresar su correo"
+                required
+                [(ngModel)]="model.correo"
+              />
             </div>
           </div>
 
@@ -108,19 +166,34 @@
                   <img [src]="'assets/img/contrasena.png'" class="img-fluid" />
                 </div>
               </div>
-              <input type="password" class="form-control" placeholder="Repetir su contraseña" required />
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Repetir su contraseña"
+                required
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-dismiss="modal"
+        (click)="modal.close()"
+      >
         Salir
       </button>
-      <button type="submit" class="btn btn-primary" ngbAutofocus (click)="modal.close('Save click')">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        ngbAutofocus
+      >
         Registrarme
       </button>
     </div>
   </div>
+</form>
 </ng-template>
