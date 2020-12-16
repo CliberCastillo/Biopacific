@@ -9,9 +9,9 @@ import { Usuario } from '../../models/usuario';
 })
 export class LoginService {
   constructor(private httpClient: HttpClient) { }
+  url = environment.apiURL + 'usuario/iniciarsesion';
 
-  ListadoDeCargos(): Observable<Usuario[]>{
-    const url = environment.apiURL + 'cargo';
-    return this.httpClient.get<Usuario[]>(url);
+  IniciarSesion(usuario: Usuario): Observable<any> {
+    return this.httpClient.post<any>(this.url, usuario);
   }
 }

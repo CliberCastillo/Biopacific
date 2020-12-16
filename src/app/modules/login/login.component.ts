@@ -1,9 +1,11 @@
+import { Router } from '@angular/router';
 import { Usuario } from './../../core/models/usuario';
 import { LoginService } from './../../core/services/login/login.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, Validators } from '@angular/forms';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -11,35 +13,53 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  model: Usuario = {correo: '', contrasena: ''};
-  cargo: Usuario[];
+  model: Usuario = { nombreUsuario: '', contrasena: '' };
   modalreferencia: any;
   closeResult: string;
-  constructor(private modalService: NgbModal, private loginservice: LoginService) {}
+  visivilidadSpinner = false;
+  constructor(private modalService: NgbModal, 
+    private loginservice: LoginService,
+    private router: Router
+    ) { }
 
-  open(content: TemplateRef<any>){
-    this.modalreferencia=this.modalService.open(content)
+  open(content: TemplateRef<any>) {
+    this.modalreferencia = this.modalService.open(content)
   }
 
-  closemodal(){
+  closemodal() {
     this.modalreferencia.close();
   }
+
   ngOnInit(): void {
-    
   }
-  ListadoDeCargo(){
-    this.loginservice.ListadoDeCargos().subscribe((response: Usuario[]) => {
-      this.cargo = response;
+
+  submit() {
+    this.visivilidadSpinner = true;
+    this.loginservice.IniciarSesion(this.model).subscribe((response: any) => {
+      if(response === true){
+        this.visivilidadSpinner = false;
+        this.limpiarInput();
+        this.modalreferencia.close();
+        this.router.navigate(['/cliente']);
+      }
+      else{
+        this.visivilidadSpinner = false;
+        this.limpiarInput();
+        Swal.fire({
+          title: 'Error',
+          text: "El correo electrónico o contraseña es incorrecto",
+          icon: 'error'
+        })
+      }
     }, (error: any) => {
-      console.log(error);
+      this.visivilidadSpinner = false;
+      this.limpiarInput();
     });
   }
-  limpiar(){
-    this.model = {correo: '', contrasena: ''};
+
+  limpiarInput() {
+    this.model = { nombreUsuario: '', contrasena: '' };
   }
-  submit(){
-    console.log(this.model);
-    this.limpiar()
-  }
+
 }
 

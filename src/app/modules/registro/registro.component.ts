@@ -15,6 +15,7 @@ export class RegistroComponent implements OnInit {
   model: Veterinaria = { nombre: '', direccion: '', telefono: '', nombreContacto: '', idDistrito: '', correo: '', contrasena: '' };
   closeResult: string;
   modalreferencia: any;
+  validarCorreo: boolean;
   modal: NgbModalRef;
   distrito: Distrito[];
   visivilidadSpinner = false;
@@ -40,28 +41,44 @@ export class RegistroComponent implements OnInit {
   }
   onSubmit() {
     this.visivilidadSpinner = true;
-    this.registroService.RegistrarVeterinaria(this.model).subscribe((response: Veterinaria) => {
-      this.visivilidadSpinner = false;
-      this.limpiarInput();
-      Swal.fire({
-        title: 'Exitoso!',
-        text: "La veterinaria a sido registrada correctamente",
-        icon: 'success'
-      })
-      this.modalreferencia.close();
+    this.registroService.ValidarCorreo(this.model.correo).subscribe((response: any) => {
+      if(response){
+        this.visivilidadSpinner = false;
+        Swal.fire({
+          title: 'Alerta!',
+          text: "El correo electrónico ya existe",
+          icon: 'info'
+        })
+      }
+      else{
+        this.registroService.RegistrarVeterinaria(this.model).subscribe((response: Veterinaria) => {
+          this.visivilidadSpinner = false;
+          this.LimpiarInput();
+          Swal.fire({
+            title: 'Exitoso!',
+            text: "La veterinaria a sido registrada correctamente, ya puedes inciar sesión",
+            icon: 'success'
+          })
+          this.modalreferencia.close();
+        }, (error: any) => {
+          this.visivilidadSpinner = false;
+          this.LimpiarInput();
+          Swal.fire({
+            title: 'Error!',
+            text: "La veterinaria no se ha registrado",
+            icon: 'error'
+          })
+          this.modalreferencia.close();
+        });
+      }
     }, (error: any) => {
-      this.visivilidadSpinner = false;
-      this.limpiarInput();
-      Swal.fire({
-        title: 'Fallo!',
-        text: "La veterinaria no se ha registrado",
-        icon: 'error'
-      })
-      this.modalreferencia.close();
+      console.log(error);
     });
   }
-  limpiarInput() {
+  LimpiarInput() {
     this.model = { nombre: '', direccion: '', telefono: '', nombreContacto: '', idDistrito: '', correo: '', contrasena: '' };
   }
-
+  VerficarCorreo(correo: string) {
+    console.log("correo ingresado"+correo);
+  }
 }

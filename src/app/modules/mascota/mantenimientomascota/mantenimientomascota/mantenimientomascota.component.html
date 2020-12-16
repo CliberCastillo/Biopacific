@@ -1,0 +1,111 @@
+<button type="button" class="dropdown-item cambiar-color-c" (click)="open(modalListadoMascota)">
+  <div class="row">
+    <div class="col-3" *ngIf="visivilidadSpinner==true">
+      <div class="spinner-border spinner-border-sm mt-1" role="status" [ngStyle]="{'display':visivilidadSpinner ? 'block' : 'none'}">
+          <span  class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div class="col-9">
+      <img [src]="'assets/img/perro.png'" class="mr-2" *ngIf="visivilidadSpinner == false">
+      Mascota
+    </div>
+  </div>  
+</button>
+<ng-template #modalListadoMascota let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title font-weight-bold">Listado de mascotas</h5>
+    <button
+      type="button"
+      class="close"
+      data-dismiss="modal"
+      aria-label="Close"
+      (click)="modal.close()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!--<div class="text-right">
+      <input type="search" placeholder="Buscar Mascota" class="form-control mb-2 w-25" width="30px"/>
+    </div>-->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Genero</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Especie</th>
+          <th scope="col">Raza</th>
+          <th scope="col">Propietario</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--<tr *ngFor="let mas of mascota">
+          <td>{{mas.nombre}}</td>
+          <td>{{mas.genero}}</td>
+          <td>{{mas.edad}}</td>
+          <td>{{mas.Especie.nombre}}</td>
+          <td>{{mas.Raza.nombre}}</td>
+          <td>{{mas.Persona.nombre}}</td>
+        </tr>-->
+        <tr>
+          <td>Dog</td>
+          <td>Macho</td>
+          <td>12</td>
+          <td>Canino</td>
+          <td>Dog</td>
+          <td>Cliber</td>
+        </tr>
+        <tr>
+          <td>Dog</td>
+          <td>Macho</td>
+          <td>12</td>
+          <td>Canino</td>
+          <td>Dog</td>
+          <td>Cliber</td>
+        </tr>
+        <tr>
+          <td>Dog</td>
+          <td>Macho</td>
+          <td>12</td>
+          <td>Canino</td>
+          <td>Dog</td>
+          <td>Cliber</td>
+        </tr>
+        <tr>
+          <td>Dog</td>
+          <td>Macho</td>
+          <td>12</td>
+          <td>Canino</td>
+          <td>Dog</td>
+          <td>Cliber</td>
+        </tr>
+        <tr>
+          <td>Dog</td>
+          <td>Macho</td>
+          <td>12</td>
+          <td>Canino</td>
+          <td>Dog</td>
+          <td>Cliber</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-dismiss="modal"
+      (click)="modal.close()"
+    >
+      Salir
+    </button>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      ngbAutofocus
+    >
+      Iniciar Sesión
+    </button>
+  </div>
+</ng-template>

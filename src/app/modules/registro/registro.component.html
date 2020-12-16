@@ -29,11 +29,6 @@
           <div class="col-auto">
             <label class="font-weight-bold">Nombre</label>
             <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <img [src]="'assets/img/usuario.png'" class="img-fluid" />
-                </div>
-              </div>
               <input
                 type="text"
                 name="nombre"
@@ -48,11 +43,6 @@
           <div class="col-auto">
             <label class="font-weight-bold">Teléfono</label>
             <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <img [src]="'assets/img/telefono.png'" class="img-fluid" />
-                </div>
-              </div>
               <input
                 type="text"
                 name="telefono"
@@ -67,11 +57,6 @@
           <div class="col-auto">
             <label class="font-weight-bold">Distrito</label>
             <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <img [src]="'assets/img/mapa.png'" class="img-fluid" />
-                </div>
-              </div>
               <select name="cboxDistrito" class="form-control" [(ngModel)]="model.idDistrito" name="idDistrito">
                 <option value="0">Seleccione una opción</option>
                 <option *ngFor="let dis of distrito" [ngValue]="dis.idDistrito">
@@ -84,11 +69,6 @@
           <div class="col-auto">
             <label class="font-weight-bold">Contraseña</label>
             <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <img [src]="'assets/img/contrasena.png'" class="img-fluid" />
-                </div>
-              </div>
               <input
                 type="password"
                 name="contrasena"
@@ -104,11 +84,6 @@
           <div class="col-auto">
             <label class="font-weight-bold">Dirección</label>
             <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <img [src]="'assets/img/ubicacion.png'" class="img-fluid" />
-                </div>
-              </div>
               <input
                 type="text"
                 name="direccion"
@@ -123,11 +98,6 @@
           <div class="col-auto">
             <label class="font-weight-bold">Nombre Contacto</label>
             <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <img [src]="'assets/img/usuario.png'" class="img-fluid" />
-                </div>
-              </div>
               <input
                 type="text"
                 name="nombreContacto"
@@ -142,11 +112,6 @@
           <div class="col-auto">
             <label class="font-weight-bold">Correo</label>
             <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <img [src]="'assets/img/email.png'" class="img-fluid" />
-                </div>
-              </div>
               <input
                 type="email"
                 name="email"
@@ -161,11 +126,6 @@
           <div class="col-auto">
             <label class="font-weight-bold">Repetir Contraseña</label>
             <div class="input-group mb-2">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <img [src]="'assets/img/contrasena.png'" class="img-fluid" />
-                </div>
-              </div>
               <input
                 type="password"
                 class="form-control"

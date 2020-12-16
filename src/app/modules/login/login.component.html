@@ -8,6 +8,9 @@
 <ng-template #mymodal let-modal>
   <form (submit)="submit()">
   <div class="modal-header">
+    <div class="spinner-border mr-3" role="status" [ngStyle]="{'display':visivilidadSpinner ? 'block' : 'none'}">
+      <span  class="sr-only">Loading...</span>
+    </div>
     <h5 class="modal-title font-weight-bold">Inicio de Sesión 'Biopacific'</h5>
     <button
       type="button"
@@ -31,9 +34,9 @@
         <input
           type="email"
           class="form-control"
-          name="Email"
+          name="nombreUsuario"
           placeholder="Ingresar su correo o usuario"
-          [(ngModel)]="model.correo"
+          [(ngModel)]="model.nombreUsuario"
           required
         />
       </div>
@@ -49,7 +52,7 @@
         <input
           type="password"
           class="form-control"
-          name="Password"
+          name="contrasena"
           placeholder="Ingresar su contraseña"
           [(ngModel)]="model.contrasena"
           required
@@ -84,7 +87,6 @@
       type="submit"
       class="btn btn-primary"
       ngbAutofocus
-      (click)="modal.close('Save click')"
     >
       Iniciar Sesión
     </button>

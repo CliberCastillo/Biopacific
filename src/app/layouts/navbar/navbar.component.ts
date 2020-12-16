@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
+  @Input() administrador: string = 'home';
 
   constructor(private router: Router) { }
 
@@ -18,5 +20,6 @@ export class NavbarComponent implements OnInit {
   navegarHaciaAdministrador(){
     this.router.navigate(['/administrador']);
   }
+
 
 }

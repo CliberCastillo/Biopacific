@@ -16,4 +16,9 @@ export class RegistroService {
   RegistrarVeterinaria(veterinaria: Veterinaria): Observable<Veterinaria> {
     return this.httpClient.post<Veterinaria>(this.url, veterinaria);
   }
+
+  ValidarCorreo(correo: string): Observable<any> {
+    const url = environment.apiURL + 'usuario/validarcorreo/' + correo;
+    return this.httpClient.get<any>(url);
+  }
 }

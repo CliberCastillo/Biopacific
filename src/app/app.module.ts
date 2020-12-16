@@ -14,6 +14,8 @@ import { RegistroComponent } from './modules/registro/registro.component';
 import { HomeComponent } from './modules/home/home.component';
 import { AdministradorComponent } from './modules/home/administrador/administrador.component';
 import { ClienteComponent } from './modules/home/cliente/cliente.component';
+import { MascotaComponent } from './modules/mascota/mascota.component';
+import { MantenimientomascotaComponent } from './modules/mascota/mantenimientomascota/mantenimientomascota/mantenimientomascota.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { ClienteComponent } from './modules/home/cliente/cliente.component';
     HomeComponent,
     AdministradorComponent,
     ClienteComponent,
+    MascotaComponent,
+    MantenimientomascotaComponent,
   ],
   imports: [
     BrowserModule,
