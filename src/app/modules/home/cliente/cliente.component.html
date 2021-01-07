@@ -1,4 +1,88 @@
-
 <app-navbar [administrador]="'cliente'"></app-navbar>
-<button (click)="NavegarHaciaHome()">Ir a Home</button>
+<div class="container">
+    <div class="mt-2 ml-3">
+        <h3>Generar Servicios</h3>
+        <div class="bg-orden pt-1 pb-1 pl-2 pr-1">
+            Reraliza tus servicios de manera sencilla, selecionar la <strong>mascota</strong> ya registrada, el
+            <strong>perfil</strong> a diagnosticar, el <strong>medico</strong> quien esta antendiendo. Le atenderemos lo
+            mas antes posible.
+        </div>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-5 mt-3">
+            <form>
+                <div class="col-auto">
+                    <label class="font-weight-bold">Medico</label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <img [src]="'assets/img/usuario.png'" class="img-fluid" />
+                            </div>
+                        </div>
+                        <select class="form-control select-css" name="idMedico" [(ngModel)]="model.idMedico">
+                            <option *ngFor="let me of medico" [value]="me.idMedico">
+                            {{ me.nombre }}{{ me.apellido }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <label class="font-weight-bold">Mascota</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <img [src]="'assets/img/nombremascota.png'" class="img-fluid" />
+                        </div>
+                    </div>
+                    <select class="form-control select-css" name="idMascota" [(ngModel)]="model.idMascota">
+                        <option *ngFor="let mas of mascota" [value]="mas.idMascota">
+                          {{ mas.nombre }} - {{mas.edad}} años
+                        </option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <label class="font-weight-bold">Perfil</label>
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <img [src]="'assets/img/matraz.png'" class="img-fluid" width="16px" />
+                        </div>
+                    </div>
+                    <select class="form-control select-css" name="idPerfil" [(ngModel)]="model.idPerfil">
+                        <option *ngFor="let per of perfil" [value]="per.idPerfil">
+                            {{ per.nombre }} - {{per.costo}} S/.
+                        </option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col-auto mt-4">
+                    <div class="text-right mb-4">
+                            <button *ngIf="visivilidadSpinner == true" type="submit" style="height: 40px; width: 180px;" class="btn btn-primary mr-2" (click)="GenerarServicio()">
+                                <span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true">
+                                </span>
+                                Generar Servicio
+                            </button> 
+                            <button *ngIf="visivilidadSpinner == false" type="submit" style="height: 40px; width: 180px;" class="btn btn-primary mr-2" (click)="GenerarServicio()">
+                                Generar Servicio
+                            </button> 
+                        <button type="button" class="btn btn-secondary">
+                            Limpiar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-5">
+            <img [src]="'assets/img/orden.png'" class="img-fluid">
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+    <br>
+    <hr>
+</div>
 <app-footer></app-footer>

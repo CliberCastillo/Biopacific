@@ -1,5 +1,5 @@
 <button type="button" class="dropdown-item cambiar-color-c" (click)="open(modalMascota)">
-    <img [src]="'assets/img/perro.png'" class="mr-2">
+    <img [src]="'assets/img/nombremascota.png'" class="mr-2">
     Mascota
   </button>
 <ng-template #modalMascota let-modal>
@@ -28,7 +28,7 @@
             <input
               type="text"
               name="nombre"
-              class="form-control"
+              class="form-control input-css"
               placeholder="Ingresar nombre de la mascota"
               required
               [(ngModel)]="model.nombre"
@@ -42,7 +42,7 @@
             <input
               type="number"
               name="edad"
-              class="form-control"
+              class="form-control input-css"
               placeholder="Ingresar la edad"
               required
               [(ngModel)]="model.edad"
@@ -51,13 +51,36 @@
         </div>
 
         <div class="col-auto">
-          <label class="font-weight-bold">Veterinaria</label>
+          <label class="font-weight-bold">Raza
+          </label>
           <div class="input-group mb-2">
-            <select class="form-control" [(ngModel)]="model.idVeterinaria" name="idVeterinaria">
-              <option value="0">Seleccione una opción</option>
-              <!--<option *ngFor="let vet of veaterinaria" [ngValue]="dis.idVeterinaria">
-                {{ vet.nombre }}
-              </option>-->
+            <select name="cboRaza" class="form-control select-css" [(ngModel)]="model.idRaza" name="idRaza">
+              <option *ngFor="let raz of raza" [ngValue]="raz.idRaza">
+                {{ raz.nombre }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="col-auto">
+          <label class="font-weight-bold">Género</label>
+          <div class="input-group mb-2">
+            <select class="form-control select-css" name="genero" [(ngModel)]="model.genero">
+              <option value="Macho">Macho</option>
+              <option value="Hembra">Hembra</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-auto">
+          <label class="font-weight-bold">Especie</label>
+          <div class="input-group mb-2">
+            <select class="form-control select-css" name="idEspecie" (change)="ListadoDeRazaPorEspecie($event.target.value)">
+              <option value="0" disabled selected>Seleccone una especie</option>
+              <option *ngFor="let es of especie" [value]="es.idEspecie">
+                {{ es.nombre }}
+              </option>
             </select>
           </div>
         </div>
@@ -67,65 +90,11 @@
           <div class="input-group mb-2">
             <input
               type="text"
-              name="nombrePersona"
-              class="form-control"
+              name="nombrePropietario"
+              class="form-control input-css"
               placeholder="Ingresar el nombre del propietario"
               required
-              [(ngModel)]="model.nombrePersona"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="col-auto">
-          <label class="font-weight-bold">Género</label>
-          <div class="input-group mb-2">
-            <input
-              type="text"
-              name="genero"
-              class="form-control"
-              placeholder="Ingresar el género"
-              required
-              [(ngModel)]="model.genero"
-            />
-          </div>
-        </div>
-
-        <div class="col-auto">
-          <label class="font-weight-bold">Especie</label>
-          <div class="input-group mb-2">
-            <select name="cboEspecie" class="form-control" [(ngModel)]="model.idEspecie" name="idEspecie">
-              <option value="0">Seleccione una opción</option>
-              <!--<option *ngFor="let es of especie" [ngValue]="es.idEspecie">
-                {{ es.nombre }}
-              </option>-->
-            </select>
-          </div>
-        </div>
-
-        <div class="col-auto">
-          <label class="font-weight-bold">Raza
-          </label>
-          <div class="input-group mb-2">
-            <select name="cboRaza" class="form-control" [(ngModel)]="model.idRaza" name="idRaza">
-              <option value="0">Seleccione una opción</option>
-              <!--<option *ngFor="let raz of raza" [ngValue]="raz.idRaza">
-                {{ raz.nombre }}
-              </option>-->
-            </select>
-          </div>
-        </div>
-
-        <div class="col-auto">
-          <label class="font-weight-bold">Celular</label>
-          <div class="input-group mb-2">
-            <input
-              type="text"
-              name="celular"
-              class="form-control"
-              placeholder="Repetir su contraseña"
-              required
-              [(ngModel)]="model.celular"
+              [(ngModel)]="model.nombrePropietario"
             />
           </div>
         </div>
@@ -146,7 +115,7 @@
       class="btn btn-primary"
       ngbAutofocus
     >
-      Iniciar Sesión
+      Registrar
     </button>
   </div>
 </form>

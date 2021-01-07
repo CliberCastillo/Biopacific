@@ -1,3 +1,4 @@
+import { Mascota } from './../../models/mascota';
 import { Usuario } from './../../models/usuario';
 import { Listadomascota } from './../../models/listadomascota';
 import { Injectable } from '@angular/core';
@@ -11,9 +12,13 @@ import { environment } from 'src/environments/environment';
 export class MascotaService {
 
   constructor(private httpClient: HttpClient) { }
-  url = environment.apiURL + 'mascota/'+'listadomascota';
+  url = environment.apiURL + 'mascota';
 
-  ListadoDeMascota(usuario: Usuario): Observable<Listadomascota[]>{
-    return this.httpClient.post<Listadomascota[]>(this.url, usuario);
+  ListadoDeMascota(idVeterinaria: string): Observable<Listadomascota[]>{
+    return this.httpClient.get<Listadomascota[]>(this.url + '/ListadoMascotasPorVeterinaria/' + idVeterinaria);
+  }
+
+  RegistrarMascota(mascota: Mascota): Observable<any> {
+    return this.httpClient.post<any>(this.url, mascota);
   }
 }

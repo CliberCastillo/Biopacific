@@ -5,6 +5,5 @@ export interface Mascota {
     idEspecie : string;
     idVeterinaria : string;
     idRaza : string;
-    nombrePersona : string;
-    celular: string;
+    nombrePropietario : string;
 }

@@ -1,3 +1,4 @@
+import { async } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { Usuario } from './../../core/models/usuario';
 import { LoginService } from './../../core/services/login/login.service';
@@ -13,9 +14,12 @@ import Swal from 'sweetalert2'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  model: Usuario = { nombreUsuario: '', contrasena: '' };
+  model: Usuario = {idUsuario:'', nombreUsuario: '', contrasena: '' };
   modalreferencia: any;
+  usuario : Usuario[];
   closeResult: string;
+  mensaje : string;
+  idUsuario : string;
   visivilidadSpinner = false;
   constructor(private modalService: NgbModal, 
     private loginservice: LoginService,
@@ -36,29 +40,26 @@ export class LoginComponent implements OnInit {
   submit() {
     this.visivilidadSpinner = true;
     this.loginservice.IniciarSesion(this.model).subscribe((response: any) => {
-      if(response === true){
-        this.visivilidadSpinner = false;
-        this.limpiarInput();
-        this.modalreferencia.close();
-        this.router.navigate(['/cliente']);
-      }
-      else{
-        this.visivilidadSpinner = false;
-        this.limpiarInput();
-        Swal.fire({
-          title: 'Error',
-          text: "El correo electrónico o contraseña es incorrecto",
-          icon: 'error'
-        })
+      if(response.estado === true){
+          localStorage.setItem('IdVeterinaria',response.idVeterinaria);
+          this.limpiarInput();
+          this.visivilidadSpinner = false;
+          this.modalreferencia.close();
+          this.router.navigate(['/cliente']);
       }
     }, (error: any) => {
       this.visivilidadSpinner = false;
       this.limpiarInput();
+      Swal.fire({
+        title: 'Error',
+        text: "El correo electrónico o la contraseña es incorrecto",
+        icon: 'error'
+      })
     });
   }
 
   limpiarInput() {
-    this.model = { nombreUsuario: '', contrasena: '' };
+    this.model = {idUsuario: '', nombreUsuario: '', contrasena: '' };
   }
 
 }

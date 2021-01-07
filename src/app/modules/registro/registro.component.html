@@ -27,6 +27,19 @@
       <div class="row">
         <div class="col-6">
           <div class="col-auto">
+            <label class="font-weight-bold">RUC</label>
+            <div class="input-group mb-2">
+              <input
+                type="text"
+                name="RUC"
+                class="form-control"
+                placeholder="Ingresar su RUC"
+                required
+                [(ngModel)]="model.RUC"
+              />
+            </div>
+          </div>
+          <div class="col-auto">
             <label class="font-weight-bold">Nombre</label>
             <div class="input-group mb-2">
               <input
@@ -57,7 +70,7 @@
           <div class="col-auto">
             <label class="font-weight-bold">Distrito</label>
             <div class="input-group mb-2">
-              <select name="cboxDistrito" class="form-control" [(ngModel)]="model.idDistrito" name="idDistrito">
+              <select class="form-control" [(ngModel)]="model.idDistrito" name="idDistrito">
                 <option value="0">Seleccione una opción</option>
                 <option *ngFor="let dis of distrito" [ngValue]="dis.idDistrito">
                   {{ dis.nombre }}
@@ -96,15 +109,15 @@
           </div>
 
           <div class="col-auto">
-            <label class="font-weight-bold">Nombre Contacto</label>
+            <label class="font-weight-bold">Razon Social</label>
             <div class="input-group mb-2">
               <input
                 type="text"
-                name="nombreContacto"
+                name="razonSocial"
                 class="form-control"
-                placeholder="Ingresar su nombre de contacto"
+                placeholder="Ingresar la razon social"
                 required
-                [(ngModel)]="model.nombreContacto"
+                [(ngModel)]="model.razonSocial"
               />
             </div>
           </div>

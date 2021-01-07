@@ -9,9 +9,13 @@ import { Usuario } from '../../models/usuario';
 })
 export class LoginService {
   constructor(private httpClient: HttpClient) { }
-  url = environment.apiURL + 'usuario/iniciarsesion';
+  url = environment.apiURL + 'usuario';
 
   IniciarSesion(usuario: Usuario): Observable<any> {
-    return this.httpClient.post<any>(this.url, usuario);
+    return this.httpClient.post<any>(this.url + "/iniciarsesion", usuario);
+  }
+
+  RecuperarIdVeterinaria(usuario : Usuario): Observable<Usuario> {
+    return this.httpClient.post<Usuario>(this.url + "/IdUsuario", usuario);
   }
 }

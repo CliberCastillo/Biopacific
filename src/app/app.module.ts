@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
+import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +18,10 @@ import { AdministradorComponent } from './modules/home/administrador/administrad
 import { ClienteComponent } from './modules/home/cliente/cliente.component';
 import { MascotaComponent } from './modules/mascota/mascota.component';
 import { MantenimientomascotaComponent } from './modules/mascota/mantenimientomascota/mantenimientomascota/mantenimientomascota.component';
+
+const ngWizardConfig: NgWizardConfig = {
+  theme: THEME.dots
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +34,7 @@ import { MantenimientomascotaComponent } from './modules/mascota/mantenimientoma
     AdministradorComponent,
     ClienteComponent,
     MascotaComponent,
-    MantenimientomascotaComponent,
+    MantenimientomascotaComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +42,10 @@ import { MantenimientomascotaComponent } from './modules/mascota/mantenimientoma
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    NgWizardModule.forRoot(ngWizardConfig)
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

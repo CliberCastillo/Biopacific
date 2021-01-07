@@ -3,7 +3,6 @@ import { Veterinaria } from './../../core/models/veterinaria';
 import { DistritoService } from './../../core/services/distrito/distrito.service';
 import { Distrito } from './../../core/models/distrito';
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2'
 @Component({
@@ -12,7 +11,7 @@ import Swal from 'sweetalert2'
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  model: Veterinaria = { nombre: '', direccion: '', telefono: '', nombreContacto: '', idDistrito: '', correo: '', contrasena: '' };
+  model: Veterinaria = { nombre: '', direccion: '', telefono: '', razonSocial: '', idDistrito: '', correo: '', contrasena: '', RUC: '' };
   closeResult: string;
   modalreferencia: any;
   validarCorreo: boolean;
@@ -76,9 +75,6 @@ export class RegistroComponent implements OnInit {
     });
   }
   LimpiarInput() {
-    this.model = { nombre: '', direccion: '', telefono: '', nombreContacto: '', idDistrito: '', correo: '', contrasena: '' };
-  }
-  VerficarCorreo(correo: string) {
-    console.log("correo ingresado"+correo);
+    this.model = { nombre: '', direccion: '', telefono: '', razonSocial: '', idDistrito: '', correo: '', contrasena: '', RUC: '' };
   }
 }
