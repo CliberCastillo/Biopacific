@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     this.loginservice.IniciarSesion(this.model).subscribe((response: any) => {
       console.log(response.estado);
       if(response.estado === true){
-          localStorage.setItem('IdVeterinaria',response.idVeterinaria);
+          localStorage.setItem('IdVeterinaria', response.idVeterinaria);
           this.limpiarInput();
           this.visivilidadSpinner = false;
           this.modalreferencia.close();

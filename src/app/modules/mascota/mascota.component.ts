@@ -44,12 +44,14 @@ export class MascotaComponent implements OnInit {
     this.mascotaService.RegistrarMascota(this.model).subscribe((response: any) => {
       this.visivilidadSpinner = false;
       this.limpiarInput();
+      this.modalreferencia.close();
       Swal.fire({
         title: 'Exitoso!',
         text: "La mascota a sido registrada correctamente",
         icon: 'success'
-      })
-      this.modalreferencia.close();
+      }).then(function() {
+        location.reload();
+      });
     }, (error: any) => {
       this.visivilidadSpinner = false;
       this.limpiarInput();

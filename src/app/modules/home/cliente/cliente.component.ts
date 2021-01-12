@@ -6,7 +6,7 @@ import { Medico } from './../../../core/models/medico';
 import { MedicoService } from './../../../core/services/medico/medico.service';
 import { Listadomascota } from './../../../core/models/listadomascota';
 import { MascotaService } from 'src/app/core/services/mascota/mascota.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2'

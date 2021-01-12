@@ -3,6 +3,7 @@ import { Medico } from './../../core/models/medico';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-medico',
   templateUrl: './medico.component.html',
@@ -14,7 +15,8 @@ export class MedicoComponent implements OnInit {
   model: Medico = { idMedico: '', nombre: '', apellido: '', edad: '', dni: '', sexo: '', idVeterinaria: ''};
   constructor(
     private modalService: NgbModal,
-    private medicoService: MedicoService
+    private medicoService: MedicoService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -36,12 +38,14 @@ export class MedicoComponent implements OnInit {
     this.medicoService.RegistrarMedico(this.model).subscribe((response: any) => {
       this.visivilidadSpinner = false;
       this.limpiarInput();
+      this.modalreferencia.close();
       Swal.fire({
         title: 'Exitoso!',
         text: "El medico a sido registrada correctamente",
         icon: 'success'
-      })
-      this.modalreferencia.close();
+      }).then(function() {
+        location.reload();
+      });
     }, (error: any) => {
       this.visivilidadSpinner = false;
       this.limpiarInput();
