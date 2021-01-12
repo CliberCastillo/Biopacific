@@ -71,7 +71,13 @@ export class RegistroComponent implements OnInit {
         });
       }
     }, (error: any) => {
-      console.log(error);
+      this.visivilidadSpinner = false;
+      this.LimpiarInput();
+      Swal.fire({
+        title: 'Error!',
+        text: "La veterinaria no se ha registrado.",
+        icon: 'error'
+      })
     });
   }
   LimpiarInput() {

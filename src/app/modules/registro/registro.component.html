@@ -71,7 +71,6 @@
             <label class="font-weight-bold">Distrito</label>
             <div class="input-group mb-2">
               <select class="form-control" [(ngModel)]="model.idDistrito" name="idDistrito">
-                <option value="0">Seleccione una opción</option>
                 <option *ngFor="let dis of distrito" [ngValue]="dis.idDistrito">
                   {{ dis.nombre }}
                 </option>
@@ -80,15 +79,13 @@
           </div>
 
           <div class="col-auto">
-            <label class="font-weight-bold">Contraseña</label>
+            <label class="font-weight-bold">Repetir Contraseña</label>
             <div class="input-group mb-2">
               <input
                 type="password"
-                name="contrasena"
                 class="form-control"
-                placeholder="Ingresar su contraseña"
+                placeholder="Repetir su contraseña"
                 required
-                [(ngModel)]="model.contrasena"
               />
             </div>
           </div>
@@ -137,13 +134,15 @@
           </div>
 
           <div class="col-auto">
-            <label class="font-weight-bold">Repetir Contraseña</label>
+            <label class="font-weight-bold">Contraseña</label>
             <div class="input-group mb-2">
               <input
                 type="password"
+                name="contrasena"
                 class="form-control"
-                placeholder="Repetir su contraseña"
+                placeholder="Ingresar su contraseña"
                 required
+                [(ngModel)]="model.contrasena"
               />
             </div>
           </div>

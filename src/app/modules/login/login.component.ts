@@ -1,11 +1,9 @@
-import { async } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { Usuario } from './../../core/models/usuario';
 import { LoginService } from './../../core/services/login/login.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -39,7 +37,9 @@ export class LoginComponent implements OnInit {
 
   submit() {
     this.visivilidadSpinner = true;
+    console.log(this.model);
     this.loginservice.IniciarSesion(this.model).subscribe((response: any) => {
+      console.log(response.estado);
       if(response.estado === true){
           localStorage.setItem('IdVeterinaria',response.idVeterinaria);
           this.limpiarInput();

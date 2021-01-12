@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
-import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { DatePipe } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,10 +18,8 @@ import { AdministradorComponent } from './modules/home/administrador/administrad
 import { ClienteComponent } from './modules/home/cliente/cliente.component';
 import { MascotaComponent } from './modules/mascota/mascota.component';
 import { MantenimientomascotaComponent } from './modules/mascota/mantenimientomascota/mantenimientomascota/mantenimientomascota.component';
-
-const ngWizardConfig: NgWizardConfig = {
-  theme: THEME.dots
-};
+import { MedicoComponent } from './modules/medico/medico.component';
+import { MantenimientomedicoComponent } from './modules/medico/mantenimientomedico/mantenimientomedico.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +32,9 @@ const ngWizardConfig: NgWizardConfig = {
     AdministradorComponent,
     ClienteComponent,
     MascotaComponent,
-    MantenimientomascotaComponent
+    MantenimientomascotaComponent,
+    MedicoComponent,
+    MantenimientomedicoComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +43,7 @@ const ngWizardConfig: NgWizardConfig = {
     FormsModule,
     NgbModule,
     HttpClientModule,
-    NgWizardModule.forRoot(ngWizardConfig)
+    NgxPaginationModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

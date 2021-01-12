@@ -1,0 +1,20 @@
+.table2 {
+    border-collapse: collapse;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  th, td {
+    padding: 1em;
+    background: #EDF6FF;
+    border-bottom: 2px solid white; 
+  }
+  
+  .css-mine {
+    margin-top: 2em;
+    clear: both;
+  }
+  .input-buscar-mascota{
+    border-color: black;
+    border-radius: 8px;
+  }

@@ -23,11 +23,20 @@
     </button>
   </div>
   <div class="modal-body">
-    <!--<div class="text-right">
-      <input type="search" placeholder="Buscar Mascota" class="form-control mb-2 w-25" width="30px"/>
-    </div>-->
-    <table class="table table-striped">
-      <thead>
+    <div class="text-right">
+      <div class="row">
+        <div class="col-4">
+
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4 text-right mb-1">
+          <input type="text" placeholder="Buscar Mascota" class="form-control input-buscar-mascota  mb-2"/>
+        </div>
+      </div>
+      
+    </div>
+      
+      <table class="data table table2 mb-0 pb-0">
         <tr>
           <th scope="col">Nombre</th>
           <th scope="col">Genero</th>
@@ -35,35 +44,47 @@
           <th scope="col">Especie</th>
           <th scope="col">Raza</th>
           <th scope="col">Propietario</th>
+          <th scope="col">Accion</th>
         </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let mas of mascota">
+        <tr *ngFor="let mas of mascota | paginate: { itemsPerPage: 4, currentPage: p }">
           <td>{{mas.nombre}}</td>
           <td>{{mas.genero}}</td>
           <td>{{mas.edad}}</td>
           <td>{{mas.especie}}</td>
           <td>{{mas.raza}}</td>
           <td>{{mas.nombrePropietario}}</td>
+          <td>
+            <button type="submit" class="btn-sm btn btn-warning">
+              Editar
+            </button> |
+            <button type="submit" class="btn-sm btn btn-danger">
+              Eliminar
+            </button>
+          </td>
         </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="modal-footer">
-    <button
+      </table>
+    </div>
+    <div class="text-right mr-3 pt-0">
+      <pagination-controls (pageChange)="p = $event" 
+                          previousLabel="Atras"
+                          nextLabel="Siguiente">
+      </pagination-controls>
+    </div>
+    <div class="modal-footer">
+      <button
       type="button"
       class="btn btn-secondary"
       data-dismiss="modal"
       (click)="modal.close()"
-    >
+      >
       Salir
     </button>
     <button
-      type="submit"
-      class="btn btn-primary"
-      ngbAutofocus
+    type="submit"
+    class="btn btn-success"
+    ngbAutofocus
     >
-      Iniciar Sesión
-    </button>
-  </div>
+    Excel
+  </button>
+</div>
 </ng-template>

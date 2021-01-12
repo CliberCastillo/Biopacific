@@ -69,7 +69,7 @@ export class ClienteComponent implements OnInit {
       this.visivilidadSpinner = false;
       Swal.fire({
         title: 'Exitoso!',
-        text: "Servicio Generado, Felicitades",
+        text: "Felicitaciones, servicio generado correctamente",
         icon: 'success'
       })
     }, (error: any) => {

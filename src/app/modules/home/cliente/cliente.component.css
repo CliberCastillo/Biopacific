@@ -2,3 +2,15 @@
     background-color: #EDF6FF;
     border-radius: 8px;
 }
+.bg-generar-orden{
+    background-color: #F9FCFE;
+    border-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 5px;
+
+}
+.bg-generar-orden:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }

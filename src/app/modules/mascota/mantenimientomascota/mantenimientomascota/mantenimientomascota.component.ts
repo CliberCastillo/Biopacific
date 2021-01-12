@@ -9,6 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./mantenimientomascota.component.css']
 })
 export class MantenimientomascotaComponent implements OnInit {
+  p: number = 1;
   mascota: Listadomascota[];
   mensaje : string;
   modalreferencia: any;

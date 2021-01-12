@@ -43,6 +43,7 @@ export class MascotaComponent implements OnInit {
     this.visivilidadSpinner = true;
     this.mascotaService.RegistrarMascota(this.model).subscribe((response: any) => {
       this.visivilidadSpinner = false;
+      this.limpiarInput();
       Swal.fire({
         title: 'Exitoso!',
         text: "La mascota a sido registrada correctamente",
