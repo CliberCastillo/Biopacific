@@ -24,7 +24,7 @@
                         </div>
                         <select class="form-control select-css" name="idMedico" [(ngModel)]="model.idMedico">
                             <option *ngFor="let me of medico" [value]="me.idMedico">
-                            {{ me.nombre }}{{ me.apellido }}
+                            {{ me.nombre }} {{ me.apellido }}
                             </option>
                         </select>
                     </div>

@@ -15,4 +15,7 @@ export class MedicoService {
   ListadoDeMedicosPorVeterinaria(idVeterinaria: string): Observable<Medico[]>{
     return this.httpClient.get<Medico[]>(this.url + '/MedicosPorVeterinaria/' + idVeterinaria);
   }
+  RegistrarMedico(medico: Medico): Observable<any> {
+    return this.httpClient.post<any>(this.url, medico);
+  }
 }

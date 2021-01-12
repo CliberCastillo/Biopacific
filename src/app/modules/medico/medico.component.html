@@ -5,6 +5,9 @@
 <ng-template #modalMedico let-modal>
   <form (submit)="submit()">
   <div class="modal-header">
+    <div class="spinner-border mr-3" role="status" [ngStyle]="{'display':visivilidadSpinner ? 'block' : 'none'}">
+      <span  class="sr-only">Loading...</span>
+    </div>
     <h5 class="modal-title font-weight-bold">Registro de Medico</h5>
     <button
       type="button"
