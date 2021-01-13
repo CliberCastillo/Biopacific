@@ -46,7 +46,7 @@
           <th scope="col">Propietario</th>
           <th scope="col">Accion</th>
         </tr>
-        <tr *ngFor="let mas of mascota | paginate: { itemsPerPage: 4, currentPage: p }" (click)="OrdenesPorMascota(mas.idMascota)">
+        <tr *ngFor="let mas of mascota | paginate: { itemsPerPage: 4, currentPage: p }">
           <td>{{mas.nombre}}</td>
           <td>{{mas.genero}}</td>
           <td>{{mas.edad}}</td>
@@ -54,10 +54,10 @@
           <td>{{mas.raza}}</td>
           <td>{{mas.nombrePropietario}}</td>
           <td>
-            <button type="submit" class="btn-sm btn btn-warning">
-              Editar
+            <button type="submit" class="btn-sm btn btn-primary" (click)="OrdenesPorMascota(mas.idMascota)">
+              Servicios
             </button> |
-            <button type="submit" class="btn-sm btn btn-danger">
+            <button type="submit" class="btn-sm btn btn-danger" (click)="EliminarMascota(mas.idMascota)">
               Eliminar
             </button>
           </td>

@@ -28,7 +28,6 @@ export class OrdenComponent implements OnInit {
     this.ordenService.OrdenesPorMascota(idMascota).subscribe((response: Ordenpormascota[]) => {
       this.ordenesPorMascota = response;
       this.cargandoGif = false;
-      console.log(this.router.url);
     }, (error: any) => {
       console.log(error);
     });

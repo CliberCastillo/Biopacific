@@ -21,4 +21,7 @@ export class MascotaService {
   RegistrarMascota(mascota: Mascota): Observable<any> {
     return this.httpClient.post<any>(this.url, mascota);
   }
+  EliminarMascota(idMascota: string): Observable<any> {
+    return this.httpClient.delete(this.url+'/'+idMascota);
+  }
 }

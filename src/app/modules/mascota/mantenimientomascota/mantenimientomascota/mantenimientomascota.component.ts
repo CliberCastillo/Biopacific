@@ -28,8 +28,8 @@ export class MantenimientomascotaComponent implements OnInit {
   }
   
   open(content: TemplateRef<any>) {
-    this.modalreferencia = this.modalService.open(content, { size: 'lg' })
-    this.ListadoDeMascota(localStorage.getItem('IdVeterinaria'))
+    this.modalreferencia = this.modalService.open(content, { size: 'lg' });
+    this.ListadoDeMascota(localStorage.getItem('IdVeterinaria'));
   }
 
   closemodal() {
@@ -42,6 +42,7 @@ export class MantenimientomascotaComponent implements OnInit {
     this.mascotaService.ListadoDeMascota(idVeterinaria).subscribe((response: Listadomascota[]) => {
       this.visivilidadSpinner = false;
       this.mascota = response;
+      console.log(response);
     }, (error: any) => {
       console.log(error);
     });
@@ -50,5 +51,12 @@ export class MantenimientomascotaComponent implements OnInit {
     localStorage.setItem('IdMascota', idMascota);
     this.closemodal();
     this.router.navigate(['cliente/orden']);
+  }
+  EliminarMascota(idMascota: string){
+    this.mascotaService.EliminarMascota(idMascota).subscribe((response: any) => {
+      this.ListadoDeMascota(localStorage.getItem('IdVeterinaria'));
+    }, (error: any) => {
+      console.log(error);
+    });
   }
 }
