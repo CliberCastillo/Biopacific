@@ -1,3 +1,4 @@
+import { Ordenpormascota } from './../../models/ordenpormascota';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -14,5 +15,9 @@ export class OrdenService {
 
   RegistrarOrden(orden: Orden): Observable<any> {
     return this.httpClient.post<any>(this.url, orden);
+  }
+  OrdenesPorMascota(idMascota: string): Observable<Ordenpormascota[]>{
+    console.log(this.url + '/OrdenesPorMascota/' + idMascota);
+    return this.httpClient.get<Ordenpormascota[]>(this.url + '/OrdenesPorMascota/' + idMascota);
   }
 }

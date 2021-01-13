@@ -31,6 +31,7 @@ export class ClienteComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    localStorage.setItem('OrdenUrl','false');
     const idVeterinaria = localStorage.getItem('IdVeterinaria');
     this.ListadoDeMascota(idVeterinaria);
     this.ListadoDeMedico(idVeterinaria);
@@ -63,7 +64,7 @@ export class ClienteComponent implements OnInit {
   GenerarServicio(){
     this.visivilidadSpinner = true;
     const date = new Date();
-    const datos = this.datePipe.transform(date, 'dd/mm/yyyy hh:mm');
+    const datos = this.datePipe.transform(date, 'DD/MM/YYYY hh:mm');
     this.model.fechaRegistro = datos.toString();
     this.ordenService.RegistrarOrden(this.model).subscribe((response: any) => {
       this.visivilidadSpinner = false;

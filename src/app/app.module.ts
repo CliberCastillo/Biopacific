@@ -20,6 +20,7 @@ import { MascotaComponent } from './modules/mascota/mascota.component';
 import { MantenimientomascotaComponent } from './modules/mascota/mantenimientomascota/mantenimientomascota/mantenimientomascota.component';
 import { MedicoComponent } from './modules/medico/medico.component';
 import { MantenimientomedicoComponent } from './modules/medico/mantenimientomedico/mantenimientomedico.component';
+import { OrdenComponent } from './modules/orden/orden.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { MantenimientomedicoComponent } from './modules/medico/mantenimientomedi
     MascotaComponent,
     MantenimientomascotaComponent,
     MedicoComponent,
-    MantenimientomedicoComponent
+    MantenimientomedicoComponent,
+    OrdenComponent
   ],
   imports: [
     BrowserModule,

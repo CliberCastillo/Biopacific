@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Listadomascota } from './../../../../core/models/listadomascota';
 import { MascotaService } from './../../../../core/services/mascota/mascota.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
@@ -16,7 +17,11 @@ export class MantenimientomascotaComponent implements OnInit {
   closeResult: string;
   visivilidadSpinner = false;
     
-  constructor(private modalService: NgbModal, private mascotaService: MascotaService) {
+  constructor(
+    private modalService: NgbModal, 
+    private mascotaService: MascotaService,
+    private router: Router
+    ) {
    }
 
   ngOnInit(): void {
@@ -31,6 +36,7 @@ export class MantenimientomascotaComponent implements OnInit {
     this.modalreferencia.close();
   }
   submit() {}
+  
   ListadoDeMascota(idVeterinaria: string) {
     this.visivilidadSpinner = true;
     this.mascotaService.ListadoDeMascota(idVeterinaria).subscribe((response: Listadomascota[]) => {
@@ -39,5 +45,10 @@ export class MantenimientomascotaComponent implements OnInit {
     }, (error: any) => {
       console.log(error);
     });
+  }
+  OrdenesPorMascota(idMascota: string){
+    localStorage.setItem('IdMascota', idMascota);
+    this.closemodal();
+    this.router.navigate(['cliente/orden']);
   }
 }

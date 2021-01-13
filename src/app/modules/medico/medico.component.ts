@@ -16,7 +16,7 @@ export class MedicoComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private medicoService: MedicoService,
-    private router: Router
+
     ) { }
 
   ngOnInit(): void {

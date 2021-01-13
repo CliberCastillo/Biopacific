@@ -1,0 +1,50 @@
+
+<div class="container mb-5">
+    <div class="text-right mt-3">
+        <a class="btn btn-outline-primary font-weight-bold" (click)="IrAlInicio()">Ir Al Inicio</a>
+    </div>
+    <div class="ml-3">
+        <h3>Servicios de la mascota </h3>
+        <div class="bg-orden pt-1 pb-1 pl-2 pr-1 mt-2">
+            Reraliza tus servicios de manera sencilla, selecionar la <strong>mascota</strong> ya registrada, el
+            <strong>perfil</strong> a diagnosticar, el <strong>medico</strong> quien esta antendiendo. Le atenderemos lo
+            mas antes posible.
+        </div>
+        <hr>
+    </div>
+    <div class="text-center" *ngIf="cargandoGif===true">
+        <img [src]="'assets/img/giforden.gif'" class="img-fluid" width="250px" />
+    </div>
+    <div *ngIf="cargandoGif===false">
+        <div class="row">
+            <div class="col-9">
+                <div class="courses-container">
+                    <div class="course" *ngFor="let orden of ordenesPorMascota">
+                        <div class="course-preview">
+                            <h6>{{orden.idOrden}}</h6>
+                            <h2>{{orden.nombreMascota}} {{orden.edadMascota}} Años</h2>
+                            <a>{{orden.fechaRegistroOrden}} <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                        <div class="course-info">
+                            <div class="progress-container">
+                                <span class="progress-text" *ngIf="orden.estadoOrden==1">
+                                    En proceso
+                                </span>
+                                <span class="progress-text" *ngIf="orden.estadoOrden==2">
+                                    Terminado
+                                </span>
+                            </div>
+                            <h6>{{orden.nombrePerfil}} {{orden.costoPerfil}} S/.</h6>
+                            <h2>Medico veterinario {{orden.nombreMedico}} {{orden.apellidoMedico}}</h2>
+                            <h6 class="mt-5">DNI: {{orden.dniMedico}}</h6>
+                            <button class="btna">Factura</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
