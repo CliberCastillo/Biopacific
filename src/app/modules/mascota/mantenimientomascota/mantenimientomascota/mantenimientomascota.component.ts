@@ -28,7 +28,7 @@ export class MantenimientomascotaComponent implements OnInit {
   }
   
   open(content: TemplateRef<any>) {
-    this.modalreferencia = this.modalService.open(content, { size: 'lg' });
+    this.modalreferencia = this.modalService.open(content, { size: 'xl' });
     this.ListadoDeMascota(localStorage.getItem('IdVeterinaria'));
   }
 

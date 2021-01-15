@@ -12,7 +12,4 @@ export class AdministradorComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  NavegarHaciaHome(){
-    this.router.navigate(['']);
-  }
 }

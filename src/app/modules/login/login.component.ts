@@ -39,13 +39,18 @@ export class LoginComponent implements OnInit {
     this.visivilidadSpinner = true;
     console.log(this.model);
     this.loginservice.IniciarSesion(this.model).subscribe((response: any) => {
-      console.log(response.estado);
+      console.log(response);
       if(response.estado === true){
           localStorage.setItem('IdVeterinaria', response.idVeterinaria);
           this.limpiarInput();
           this.visivilidadSpinner = false;
           this.modalreferencia.close();
-          this.router.navigate(['/cliente']);
+          if(response.rol == "Administrador"){
+            this.router.navigate(['/administrador']);
+          }
+          else{
+            this.router.navigate(['/cliente']);
+          }
       }
     }, (error: any) => {
       this.visivilidadSpinner = false;

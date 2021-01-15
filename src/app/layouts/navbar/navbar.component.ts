@@ -21,4 +21,7 @@ export class NavbarComponent implements OnInit {
   navegarHaciaAdministrador(){
     this.router.navigate(['/administrador']);
   }
+  CerrarSesion(){
+    this.router.navigate(['']);
+  }
 }
