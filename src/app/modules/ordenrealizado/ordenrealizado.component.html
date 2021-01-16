@@ -1,0 +1,45 @@
+<div class="container mt-4">
+    <div class="row mt-3 bg-orden pb-2 pt-2 font-weight-bold">
+        <div class="col-2">
+            Veteterinaria
+        </div>
+        <div class="col-2">
+            Nombre Medico
+        </div>
+        <div class="col-2">
+            Nombre Mascota
+        </div>
+        <div class="col-2">
+            Nombre Perfil
+        </div>
+        <div class="col-2">
+            Fecha
+        </div>
+        <div class="col-2">
+            Accion
+        </div>
+    </div>
+    <hr>
+    <div class="row border rounded mt-2 div-flotante" *ngFor="let ordenes of ordenesRealizados">
+        <div class="col-2 mt-2">
+            <p>{{ordenes.nombreVeterinaria}}</p>
+        </div>
+        <div class="col-2 mt-2">
+            <p>{{ordenes.nombreMedico}}</p>
+        </div>
+        <div class="col-2 mt-2">
+            <p>{{ordenes.nombreMascota}}</p>
+        </div>
+        <div class="col-2 mt-2">
+            <p>{{ordenes.nombrePerfil}}</p>
+        </div>
+        <div class="col-2 mt-2">
+            <p>{{ordenes.fechaRegistroOrden}}</p>
+        </div>
+        <div class="col-2 mt-2">
+            <button class="btn btn-primary btn-sm btn-flotante text-white">✔</button>
+            <button class="btn btn-primary btn-sm btn-flotante text-white ml-2">❌</button>
+        </div>
+    </div>
+    <br><br>
+</div>

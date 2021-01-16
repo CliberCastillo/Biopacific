@@ -21,6 +21,7 @@ import { MantenimientomascotaComponent } from './modules/mascota/mantenimientoma
 import { MedicoComponent } from './modules/medico/medico.component';
 import { MantenimientomedicoComponent } from './modules/medico/mantenimientomedico/mantenimientomedico.component';
 import { OrdenComponent } from './modules/orden/orden.component';
+import { OrdenrealizadoComponent } from './modules/ordenrealizado/ordenrealizado.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { OrdenComponent } from './modules/orden/orden.component';
     MantenimientomascotaComponent,
     MedicoComponent,
     MantenimientomedicoComponent,
-    OrdenComponent
+    OrdenComponent,
+    OrdenrealizadoComponent
   ],
   imports: [
     BrowserModule,

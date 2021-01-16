@@ -18,8 +18,8 @@ export class NavbarComponent implements OnInit {
   navegarHaciaCliente(){
     this.router.navigate(['/cliente']);
   }
-  navegarHaciaAdministrador(){
-    this.router.navigate(['/administrador']);
+  OrdenesRealizados(){
+    this.router.navigate(['/administrador/orden']);
   }
   CerrarSesion(){
     this.router.navigate(['']);

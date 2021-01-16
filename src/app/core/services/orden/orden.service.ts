@@ -1,3 +1,4 @@
+import { OrdenRealizado } from './../../models/ordenrealizado';
 import { Ordenpormascota } from './../../models/ordenpormascota';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -17,7 +18,9 @@ export class OrdenService {
     return this.httpClient.post<any>(this.url, orden);
   }
   OrdenesPorMascota(idMascota: string): Observable<Ordenpormascota[]>{
-    console.log(this.url + '/OrdenesPorMascota/' + idMascota);
     return this.httpClient.get<Ordenpormascota[]>(this.url + '/OrdenesPorMascota/' + idMascota);
+  }
+  OrdenesRealizados(): Observable<OrdenRealizado[]>{
+    return this.httpClient.get<OrdenRealizado[]>(this.url + '/OrdenesRealizados');
   }
 }
