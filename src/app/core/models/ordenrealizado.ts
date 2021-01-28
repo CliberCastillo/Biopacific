@@ -1,5 +1,6 @@
 export interface OrdenRealizado {
     idOrden: string,
+    estadoOrden: number,
     fechaRegistroOrden: string,
     nombreMedico: string,
     nombreMascota: string,

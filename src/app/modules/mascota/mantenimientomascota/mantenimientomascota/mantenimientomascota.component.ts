@@ -59,4 +59,12 @@ export class MantenimientomascotaComponent implements OnInit {
       console.log(error);
     });
   }
+  ExcelMascotasPorVeterinaria(){
+    const idVeterinaria = localStorage.getItem('IdVeterinaria')
+    this.mascotaService.ExcelMascotasPorVeterinaria(idVeterinaria).subscribe((response: any) => {
+      
+    }, (error: any) => {
+      console.log(error);
+    });
+  }
 }

@@ -24,4 +24,7 @@ export class MascotaService {
   EliminarMascota(idMascota: string): Observable<any> {
     return this.httpClient.delete(this.url+'/'+idMascota);
   }
+  ExcelMascotasPorVeterinaria(idVeterinaria: string){
+    return this.httpClient.get<any>(this.url + '/ExcelMascotasPorVeterinaria/' + idVeterinaria);
+  }
 }

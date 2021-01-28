@@ -23,4 +23,12 @@ export class OrdenService {
   OrdenesRealizados(): Observable<OrdenRealizado[]>{
     return this.httpClient.get<OrdenRealizado[]>(this.url + '/OrdenesRealizados');
   }
+
+  CancelarOrden(idOrden: string): Observable<any>{
+    return this.httpClient.get<any>(this.url + '/CancelarOrden/' + idOrden);
+  }
+  
+  AceptarOrden(idOrden: string): Observable<any>{
+    return this.httpClient.get<any>(this.url + '/AceptarOrden/' + idOrden);
+  }
 }

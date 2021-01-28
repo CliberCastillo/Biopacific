@@ -1,5 +1,5 @@
 <button type="button" class="dropdown-item cambiar-color-c" (click)="open(modalMascota)">
-    <img [src]="'assets/img/nombremascota.png'" class="mr-2">
+    <i class="fa fa-qq font-weight-bold text-dark mr-2"></i>
     Mascota
   </button>
 <ng-template #modalMascota let-modal>
@@ -108,6 +108,7 @@
       data-dismiss="modal"
       (click)="modal.close()"
     >
+    <i class="fa fa-times-circle"></i>
       Salir
     </button>
     <button
@@ -115,6 +116,7 @@
       class="btn btn-primary"
       ngbAutofocus
     >
+    <i class="fa fa-save"></i>
       Registrar
     </button>
   </div>

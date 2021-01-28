@@ -1,7 +1,7 @@
 <button type="button" class="dropdown-item cambiar-color-c" (click)="open(modalListadoMascota)">
   <div class="row">
     <div class="col-9">
-      <img [src]="'assets/img/nombremascota.png'" class="mr-2">
+      <i class="fa fa-qq font-weight-bold text-dark mr-2"></i>
       Mascota
     </div>
   </div>  
@@ -55,9 +55,11 @@
           <td>{{mas.nombrePropietario}}</td>
           <td>
             <button type="submit" class="btn-sm btn btn-primary" (click)="OrdenesPorMascota(mas.idMascota)">
+              <i class="fa fa-ambulance"></i>
               Servicios
             </button> |
             <button type="submit" class="btn-sm btn btn-danger" (click)="EliminarMascota(mas.idMascota)">
+              <i class="fa fa-times-circle"></i>
               Eliminar
             </button>
           </td>
@@ -77,13 +79,16 @@
       data-dismiss="modal"
       (click)="modal.close()"
       >
+      <i class="fa fa-times-circle mr-1"></i>
       Salir
     </button>
     <button
     type="submit"
     class="btn btn-success"
     ngbAutofocus
+    (click)="ExcelMascotasPorVeterinaria()"
     >
+    <i class="fa fa-file-excel-o"></i>
     Excel
   </button>
 </div>

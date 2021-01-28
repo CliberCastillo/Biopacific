@@ -64,12 +64,15 @@
                             <button *ngIf="visivilidadSpinner == true" type="submit" style="height: 40px; width: 180px;" class="btn btn-primary mr-2" (click)="GenerarServicio()">
                                 <span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true">
                                 </span>
+                                
                                 Generar Servicio
                             </button> 
                             <button *ngIf="visivilidadSpinner == false" type="submit" style="height: 40px; width: 180px;" class="btn btn-primary mr-2" (click)="GenerarServicio()">
+                                <i class="fa fa-ambulance mr-1"></i>
                                 Generar Servicio
                             </button> 
                         <button type="button" class="btn btn-secondary">
+                            <i class="fa fa-trash"></i>
                             Limpiar
                         </button>
                     </div>

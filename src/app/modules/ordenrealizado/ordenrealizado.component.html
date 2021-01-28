@@ -1,4 +1,10 @@
 <div class="container mt-4">
+    <div class="text-right mt-3">
+        <a class="btn btn-outline-primary font-weight-bold" (click)="IrAlInicio()">
+            <i class="fa fa-home"></i>
+            Ir Al Inicio
+        </a>
+    </div>
     <div class="row mt-3 bg-orden pb-2 pt-2 font-weight-bold">
         <div class="col-2">
             Veteterinaria
@@ -20,7 +26,7 @@
         </div>
     </div>
     <hr>
-    <div class="row border rounded mt-2 div-flotante" *ngFor="let ordenes of ordenesRealizados">
+    <div class="row border mt-2 div-flotante pt-2 pb-2" *ngFor="let ordenes of ordenesRealizados">
         <div class="col-2 mt-2">
             <p>{{ordenes.nombreVeterinaria}}</p>
         </div>
@@ -36,10 +42,58 @@
         <div class="col-2 mt-2">
             <p>{{ordenes.fechaRegistroOrden}}</p>
         </div>
-        <div class="col-2 mt-2">
-            <button class="btn btn-primary btn-sm btn-flotante text-white">✔</button>
-            <button class="btn btn-primary btn-sm btn-flotante text-white ml-2">❌</button>
+        <div class="col-2 mt-1" *ngIf="ordenes.estadoOrden==3">
+            <button class="btn btn-primary btn-sm btn-flotante1 text-dark font-weight-bold bg-orden" (click)="open(modalLlenarResultado)">
+                <i class="fa fa-pencil-square"></i>
+                Resultado
+            </button>
         </div>
-    </div>
+        <div class="col-2 mt-1" *ngIf="ordenes.estadoOrden==1">
+            <button class="btn btn-primary btn-sm btn-flotante text-white bg-orden" (click)="AceptarOrden(ordenes.idOrden)">
+                <i class="fa fa-check text-success"></i>
+            </button>
+            <button class="btn btn-primary btn-sm btn-flotante text-white bg-orden ml-2" (click)="CancelarOrden(ordenes.idOrden)">
+                <i class="fa fa-times text-danger"></i>
+            </button>
+        </div>
+        </div>
     <br><br>
 </div>
+
+<ng-template #modalLlenarResultado let-modal>
+    <form>
+    <div class="modal-header">
+      <h5 class="modal-title font-weight-bold">Registro de Medico</h5>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+        (click)="modal.close()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <h1 class="bg-success rounded">Llenar los resultados</h1>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-dismiss="modal"
+        (click)="modal.close()"
+      >
+        Salir
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        ngbAutofocus
+      >
+        Registrar
+      </button>
+    </div>
+  </form>
+  </ng-template>
+  

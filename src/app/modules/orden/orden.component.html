@@ -1,7 +1,10 @@
 
 <div class="container mb-5">
     <div class="text-right mt-3">
-        <a class="btn btn-outline-primary font-weight-bold" (click)="IrAlInicio()">Ir Al Inicio</a>
+        <a class="btn btn-outline-primary font-weight-bold" (click)="IrAlInicio()">
+            <i class="fa fa-home"></i>
+            Ir Al Inicio
+        </a>
     </div>
     <div class="ml-3">
         <h3>Servicios de la mascota </h3>
@@ -28,10 +31,13 @@
                         <div class="course-info">
                             <div class="progress-container">
                                 <span class="progress-text" *ngIf="orden.estadoOrden==1">
-                                    En proceso
+                                    Solicitado
                                 </span>
-                                <span class="progress-text" *ngIf="orden.estadoOrden==2">
-                                    Terminado
+                                <span class="progress-text text-white font-weight-bold bg-success rounded pt-1 pb-1 pr-2 pl-2" *ngIf="orden.estadoOrden==3">
+                                    Proceso
+                                </span>
+                                <span class="progress-text text-white font-weight-bold bg-danger rounded pt-1 pb-1 pr-2 pl-2" *ngIf="orden.estadoOrden==5">
+                                    Cancelado
                                 </span>
                             </div>
                             <h6>{{orden.nombrePerfil}} {{orden.costoPerfil}} S/.</h6>
@@ -40,8 +46,11 @@
                             <div *ngIf="orden.estadoOrden === 1">
                                 <button disabled class="btna" style="background-color:#ABB2B9;">Factura</button>
                             </div>
-                            <div *ngIf="orden.estadoOrden === 2">
-                                <button class="btna">Factura</button>
+                            <div *ngIf="orden.estadoOrden === 3">
+                                <button class="btna">
+                                    <i class="fa fa-save"></i>
+                                    Factura
+                                </button>
                             </div>
                         </div>
                     </div>

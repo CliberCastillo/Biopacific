@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Ordenpormascota } from 'src/app/core/models/ordenpormascota';
 import { OrdenService } from 'src/app/core/services/orden/orden.service';
 

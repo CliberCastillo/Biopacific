@@ -3,9 +3,33 @@
     border-radius: 8px;
 }
 .div-flotante{
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
 }
 .btn-flotante{
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
     border-radius: 30px;
+    width: 40px;
+    height: 40px;
+}
+.btn-flotante:hover{
+    width: 43px;
+    height: 43px;
+    background-color: white;
+}
+.div-flotante:hover{
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    background-color: #EDF6FF;
+    border-radius: 12px;
+    font-weight: bold;
+}
+.btn-flotante1{
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    width: 130px;
+    height: 40px;
+}
+.btn-flotante1:hover{
+    width: 132px;
+    height: 42px;
+    background-color: white;
 }

@@ -1,5 +1,5 @@
 <button type="button" class="dropdown-item cambiar-color-c" (click)="open(modalMedico)">
-    <img [src]="'assets/img/usuario.png'" class="mr-2">
+  <i class="fa fa-user-md font-weight-bold text-dark mr-2"></i>
     Medico
   </button>
 <ng-template #modalMedico let-modal>
@@ -99,6 +99,7 @@
       data-dismiss="modal"
       (click)="modal.close()"
     >
+    <i class="fa fa-times-circle"></i>
       Salir
     </button>
     <button
@@ -106,6 +107,7 @@
       class="btn btn-primary"
       ngbAutofocus
     >
+    <i class="fa fa-save"></i>
       Registrar
     </button>
   </div>
