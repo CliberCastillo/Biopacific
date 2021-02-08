@@ -1,0 +1,127 @@
+<button type="button" class="dropdown-item cambiar-color-c" (click)="open(modalMedico)">
+    <i class="fa fa-user-md font-weight-bold text-dark mr-2"></i>
+      Medico
+    </button>
+  <ng-template #modalMedico let-modal>
+    <form (submit)="submit()">
+    <div class="modal-header">
+      <div class="spinner-border mr-3" role="status" [ngStyle]="{'display':visivilidadSpinner ? 'block' : 'none'}">
+        <span  class="sr-only">Loading...</span>
+      </div>
+      <h5 class="modal-title font-weight-bold">Registro de Medico</h5>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+        (click)="modal.close()"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-6">
+          <div class="col-auto">
+            <label class="font-weight-bold">Nombre</label>
+            <div class="input-group mb-2">
+              <input
+                type="text"
+                name="nombre"
+                class="form-control input-css"
+                placeholder="Ingresar nombre del Empleado"
+                required
+                [(ngModel)]="model.nombre"
+              />
+            </div>
+          </div>
+  
+          <div class="col-auto">
+            <label class="font-weight-bold">Telefono</label>
+            <div class="input-group mb-2">
+              <input
+                type="number"
+                name="telefono"
+                class="form-control input-css"
+                placeholder="Ingresar el numero de telefono"
+                required
+                [(ngModel)]="model.telefono"
+              />
+            </div>
+          </div>
+  
+        <div class="col-auto">
+            <label class="font-weight-bold">Cargo
+            </label>
+            <div class="input-group mb-2">
+              <select name="cboRaza" class="form-control select-css" [(ngModel)]="model.idCargo" name="idCargo">
+                <option *ngFor="let raz of raza" [ngValue]="raz.idRaza">
+                  {{ raz.nombre }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="col-auto">
+            <label class="font-weight-bold">DNI</label>
+            <div class="input-group mb-2">
+              <input
+                type="text"
+                name="nombre"
+                class="form-control input-css"
+                placeholder="Ingresar DNI del empleado"
+                required
+                [(ngModel)]="model.dni"
+              />
+            </div>
+          </div>
+  
+          <div class="col-auto">
+            <label class="font-weight-bold">Usuario
+            </label>
+            <div class="input-group mb-2">
+              <select name="cboRaza" class="form-control select-css" [(ngModel)]="model.idUsuario" name="idUsuario">
+                <option *ngFor="let raz of raza" [ngValue]="raz.idRaza">
+                  {{ raz.nombre }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-auto">
+            <label class="font-weight-bold">Distrito
+            </label>
+            <div class="input-group mb-2">
+              <select name="cboRaza" class="form-control select-css" [(ngModel)]="model.idDistrito" name="idDistrito">
+                <option *ngFor="let raz of raza" [ngValue]="raz.idRaza">
+                  {{ raz.nombre }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-dismiss="modal"
+        (click)="modal.close()"
+      >
+      <i class="fa fa-times-circle"></i>
+        Salir
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        ngbAutofocus
+      >
+      <i class="fa fa-save"></i>
+        Registrar
+      </button>
+    </div>
+  </form>
+  </ng-template>
+  

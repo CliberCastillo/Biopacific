@@ -103,35 +103,17 @@
             Register
           </a>
           <div class="dropdown-menu dropdown-content-c cambiar-color-c" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item cambiar-color-c" href="#">
-              <img [src]="'assets/img/usuario.png'" class="mr-2">
-              Perfil
-            </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item cambiar-color-c" href="#">
-              <img [src]="'assets/img/usuario.png'" class="mr-2">
-              Examen
-            </a>
+            <app-cargo></app-cargo>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item cambiar-color-c" href="#">
-              <img [src]="'assets/img/usuario.png'" class="mr-2">
-              Cargo
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item cambiar-color-c" href="#">
-              <img [src]="'assets/img/usuario.png'" class="mr-2">
-              Distrito
-            </a>
+            <app-distrito></app-distrito>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item cambiar-color-c" href="#">
               <img [src]="'assets/img/usuario.png'" class="mr-2">
               Empleado
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item cambiar-color-c" href="#">
-              <img [src]="'assets/img/usuario.png'" class="mr-2">
-              Especie
-            </a>
+            <app-especie></app-especie>
           </div>
         </li>
         <li class="nav-item dropdown-c">
@@ -169,10 +151,6 @@
               <span class="sr-only">Ordenes</span>
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" (click)="OrdenesRealizados()">Ver Ordenes</a>
             </div>
           </div>

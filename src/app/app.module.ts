@@ -1,3 +1,4 @@
+import { DistritoComponent } from './modules/distrito/distrito.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +23,8 @@ import { MedicoComponent } from './modules/medico/medico.component';
 import { MantenimientomedicoComponent } from './modules/medico/mantenimientomedico/mantenimientomedico.component';
 import { OrdenComponent } from './modules/orden/orden.component';
 import { OrdenrealizadoComponent } from './modules/ordenrealizado/ordenrealizado.component';
+import { EspecieComponent } from './modules/especie/especie.component';
+import { CargoComponent } from './modules/cargo/cargo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +41,10 @@ import { OrdenrealizadoComponent } from './modules/ordenrealizado/ordenrealizado
     MedicoComponent,
     MantenimientomedicoComponent,
     OrdenComponent,
-    OrdenrealizadoComponent
+    OrdenrealizadoComponent,
+    EspecieComponent,
+    CargoComponent,
+    DistritoComponent
   ],
   imports: [
     BrowserModule,

@@ -11,8 +11,12 @@ export class EspecieService {
 
   constructor(private httpClient: HttpClient) { }
 
+  url = environment.apiURL + 'especie';
   ListadoDeEspecie(): Observable<Especie[]>{
-    const url = environment.apiURL + 'especie';
-    return this.httpClient.get<Especie[]>(url);
+    return this.httpClient.get<Especie[]>(this.url);
+  }
+
+  RegistrarEspecie(especie: Especie): Observable<any> {
+    return this.httpClient.post<any>(this.url, especie);
   }
 }

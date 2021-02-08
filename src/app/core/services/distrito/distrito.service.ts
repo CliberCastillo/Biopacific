@@ -11,8 +11,12 @@ export class DistritoService {
 
   constructor(private httpClient: HttpClient) { }
 
+  url = environment.apiURL + 'distrito';
   ListadoDeDistrito(): Observable<Distrito[]>{
-    const url = environment.apiURL + 'distrito';
-    return this.httpClient.get<Distrito[]>(url);
+    return this.httpClient.get<Distrito[]>(this.url);
+  }
+
+  RegistrarDistrito(distrito: Distrito): Observable<any> {
+    return this.httpClient.post<any>(this.url, distrito);
   }
 }
