@@ -43,7 +43,7 @@
             <p>{{ordenes.fechaRegistroOrden}}</p>
         </div>
         <div class="col-2 mt-1" *ngIf="ordenes.estadoOrden==3">
-            <button class="btn btn-primary btn-sm btn-flotante1 text-dark font-weight-bold bg-orden" (click)="open(modalLlenarResultado)">
+            <button class="btn btn-primary btn-sm btn-flotante1 text-dark font-weight-bold bg-orden" (click)="open(ModalRegistrarResultado,ordenes.idOrden)">
                 <i class="fa fa-pencil-square"></i>
                 Resultado
             </button>
@@ -60,10 +60,13 @@
     <br><br>
 </div>
 
-<ng-template #modalLlenarResultado let-modal>
-    <form>
+<ng-template #ModalRegistrarResultado let-modal>
+    <form (submit)="submit()">
     <div class="modal-header">
-      <h5 class="modal-title font-weight-bold">Registro de Medico</h5>
+      <div class="spinner-border mr-3" role="status" [ngStyle]="{'display':visivilidadSpinner ? 'block' : 'none'}">
+        <span  class="sr-only">Loading...</span>
+      </div>
+      <h5 class="modal-title font-weight-bold">Registrar Resultado</h5>
       <button
         type="button"
         class="close"
@@ -75,7 +78,24 @@
       </button>
     </div>
     <div class="modal-body">
-        <h1 class="bg-success rounded">Llenar los resultados</h1>
+        
+    <div class="row">
+        <div class="col-12">
+          <div class="col-auto">
+            <label class="font-weight-bold">Nombre Cargo</label>
+            <div class="input-group mb-2">
+              <input
+                type="text"
+                name="nombre"
+                class="form-control input-css"
+                placeholder="Ingresar el resultado"
+                required
+                [(ngModel)]="modelResultado.nombreResultado"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="modal-footer">
       <button
@@ -84,16 +104,17 @@
         data-dismiss="modal"
         (click)="modal.close()"
       >
+      <i class="fa fa-times-circle"></i>
         Salir
       </button>
       <button
-        type="submit"
-        class="btn btn-primary"
-        ngbAutofocus
-      >
-        Registrar
-      </button>
+      type="submit"
+      class="btn btn-primary"
+      ngbAutofocus
+    >
+    <i class="fa fa-save"></i>
+      Registrar
+    </button>
     </div>
   </form>
   </ng-template>
-  

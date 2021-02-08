@@ -25,6 +25,7 @@ import { OrdenComponent } from './modules/orden/orden.component';
 import { OrdenrealizadoComponent } from './modules/ordenrealizado/ordenrealizado.component';
 import { EspecieComponent } from './modules/especie/especie.component';
 import { CargoComponent } from './modules/cargo/cargo.component';
+import { ResultadoComponent } from './modules/resultado/resultado.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { CargoComponent } from './modules/cargo/cargo.component';
     OrdenrealizadoComponent,
     EspecieComponent,
     CargoComponent,
-    DistritoComponent
+    DistritoComponent,
+    ResultadoComponent
   ],
   imports: [
     BrowserModule,
